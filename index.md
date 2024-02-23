@@ -17,31 +17,53 @@ Based on my reading, the three overall questions I chose to investigate were:
 1. **How has corporate ownership changed over time in the Boston Area?** One of the most interesting aspects of the dataset is that it provides twenty years of corporate ownership rates and owner occupancy rates. If higher corporate ownership is intertwined with the current housing crisis, we would expect to see staunch increases in corporate ownership recent years. How have these numbers (and the ratio between them) evolved over time in Boston?
 1. **How has corporate ownership influenced housing availability in student communities?** I’ve been at MIT for almost five years now, and also lived in Boston prior to attending. Over the years, campus has rapidly transformed dramatically and is now surrounded by freshly built and very expensive apartment complexes, likely owned by big corporations. Even the new graduate dorms are outrageously expensive. I want to get some idea of how this is impacting where students choose to live.
 
-## Data Overview
+## Preliminary Data Analysis
 
-To begin, I perform a few basic checks on the dataset to get familiar with it.
+To begin, I perform a few basic checks on the dataset to get familiar with it. I start by looking at the distribution of corporate ownership rates by neighborhood for one year.
 
 ![Corporate Ownership Rates 2020](./figures/p1_corp_ownership_neighborhood.png)
 <em>Figure 1: Corporate ownership rates in Boston neighborhoods as of 2020. There is a wide spread across neighborhoods, ranging from about 12% on the low end to 38% on the high end.</em>
 
+The spread of this data matches my expectations, as there is a wide spread of corporate ownership rates and no outstanding or weird values. As we will see later, it turns out that the largest corporate ownership values are the coastal-adjacent cities.
+
+The next aspect I wanted to look at was the demographic composition of Boston, since that's the most fundamental information that the Census data provides. I started small by visualizing the count of college students in each year, and noticed something odd...
+
 ![College Students Over Time](./figures/p2_college_students_time.png)
 <em>Figure 2: College student population over time. This plot indicates a quirk in the dataset, in that the census data is for only one year, likely as an artifact of merging the census data with the corporate ownership data.</em>
+
+The odd thing should be obvious: the value is constant! From this, I hypothesized that there was actually only one year in which the Census data was taken. Looking directly at the dataset, this appears to be the case.
 
 ![Explaining College Student Data Quirk](./figures/p2_1_explaining_constant.png)
 <em>Figure 3: Example entries from the dataset showing that the census data is indeed duplicated.</em>
 
+From what I can tell from the metadata, the Census data is from 2020, so from now on whenever I look at demographics, or when I need to choose a specific year, I will choose 2020. With that in mind, I turned to looking at the actual racial composition of Boston:
+
 ![Demographic Spread](./figures/p3_demographics.png)
 <em>Figure 4: Demographic group counts, taken from 2020 Census data. Unsurprisingly, Boston is majority white, but is also home to hundreds of thousands of Hispanic, Black, and AAPI people, and very few AIAN people.</em>
 
+Again, this plot roughly matched my expectations, with Boston being overwhelmingly white. However, I was surprised to see the actual scale of other communities in Boston, and noted down that my next analyses should look at how demographic composition relates to corporate ownership rates.
+
+Finally, I noticed that some of the neighborhoods in the Census data did not have corresponding latitudes and longitudes. I decided to exclude these from all of my map plots that follow.
+
 ## Question 1: Spatial Distribution of Owner Occupied vs. Corporate Owned Homes
+
+For my first question, I wanted to understand how corporate ownership is distributed spatially. This connects to the Washington Post article, which argues that the availability of developable land is closely related to the cost. In the case of Boston, I would expect the coastal neighborhoods to be the best investments for corporations, resulting in more corporate ownership. This is straightforward to plot as a map, using the data from 2020:
 
 ![Corporate Ownership Map](./figures/q1_1_corp_own_map.png)
 <em>Figure 5: Map of corporate owernship rates across different Boston neighborhoods. The coast-adjacent neighborhoods are significantly more corporately owned than the inland neighborhoods.</em>
 
+As expected, the costal neighborhoods appear to be hotbeds for corporate ownership. The further out you go (and, I would expect, the more developable land there is), the less corporate ownership.
+
 ### Followup: Demographics of High Owner-Occupancy Neighborhoods
+
+This raises another question, though: what do these corporately owned neighborhoods look like demopgrahically? Based on the readings about evictions (and from watching shows like Last Week Tonight, which frequently cover these subjects), I might guess that corporate owned neighborhoods tend to be more expensive and predominantly white.
+
+A good way to see this relationship is to look at pie charts representing the demographic composition of each neighborhood, and arrange them in order of how corporately owned the neighborhood is. The next figure does just that.
 
 ![Corporate Ownership and Demographics Plot](./figures/q1_2_demographic_pies.png)
 <em>Figure 6: Demographic composition of Boston neighborhoods in 2020, sorted by corporate ownership rates for those neighborhoods from 2020. The most corporately owned neighborhoods are overwhelmingly white. The least corporately owned neighborhoods are more diverse and are often majority non-white.</em>
+
+From Figure 6, it's clear that the neighborhoods with the most corporate ownership have mostly white populations, while the least corporately owned neighborhoods are more diverse.
 
 ## Question 2: Change in Corporate Ownership Over Time
 
