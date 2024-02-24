@@ -91,10 +91,19 @@ Figure 8 shows clearly that the dramatic change in differential starts around 20
 
 ## Question 3: Influence of Corporate Owneship on Student Communities
 
+Finally, I consider how corporate ownership relates to the student populations of these different neighborhoods. From personal experience, I know that the apartment complexes and housing units closest to campust tend to be some of the most expensive. While there are many potentialy explanations for this, I think it's probable that corporate ownership plays a role. The more that housing is priced by large corporations than it is by independent owners, likely the more expensive it becomes. So, in this section, I look the student populations of the most corporately owned neighborhoods. Figure 9-Left below visualizes this relationship.
+
 ![College Population Fractions and Vacancy Rates](./figures/q3_college_vacancy.png)
+<br>
 <em>Figure 9: (Left) Fraction of neighborhood population that is college students, sorted by corporate ownership rate of the neighborhood in 2020. (Right) Fraction of units that were vacant in 2020, sorted by the same criterion. There appears to be a clear correlation between corporate ownership and student population and vacancy.</em>
 
+Notice that the rows of Figure 9 are sorted by corporate ownership rate. Interestingly, this seems to track student population rates, indicating that the most corporately owned neighborhoods tend to have large fractions of students in the population. This could be strictly correlative, as most of the colleges in the Boston area are located close to downtown, which we saw previously is trending corporately owned for myriad reasons. However, it tracks with my prior that student neighborhoods are becoming increasingly expensive, with more large apartment complexes and fewer independent home owners renting rooms.
+
 ### Followup: What about influence on vacancy?
+
+While looking at student population rates, I wondered also what the _vacancy_ rates of the most corporately owned neighborhoods are. There are many reasons to expect higher vacancy rates, such as increasing eviction rates (as described in the NYT article), existing residents getting priced out, or corporations holding onto properties without renting for investment reasons. Figure 9-Right shows the answer: neighborhoods with more corporate ownership tend to have substantially more vacant units than other neighborhoods. The most corporately owned neighborhood, South Boston Waterfront, has almost 22% of its total units sitting vacant!
+
+Connecting this back to student communities, it does look like the student-dense neighborhoods like Fenway are less vacant, which matches expectations. There is also likely a lot of churn in these neighborhoods between years (when students move for internships, or switch to homes in different neighborhoods).
 
 ## Conclusions
 
